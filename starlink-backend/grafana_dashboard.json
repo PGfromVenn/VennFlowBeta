@@ -1,0 +1,46 @@
+{
+  "dashboard": {
+    "id": null,
+    "title": "Starlink Telemetry",
+    "panels": [
+      {
+        "type": "graph",
+        "title": "Débit RX/TX",
+        "targets": [
+          {
+            "refId": "A",
+            "datasource": "Elasticsearch",
+            "query": "rx_bytes, tx_bytes",
+            "bucketAggs": [
+              { "type": "date_histogram", "field": "timestamp", "id": "1" }
+            ],
+            "metrics": [
+              { "type": "max", "field": "rx_bytes", "id": "2" },
+              { "type": "max", "field": "tx_bytes", "id": "3" }
+            ]
+          }
+        ],
+        "gridPos": { "x": 0, "y": 0, "w": 24, "h": 8 }
+      },
+      {
+        "type": "stat",
+        "title": "Erreurs",
+        "targets": [
+          {
+            "refId": "B",
+            "datasource": "Elasticsearch",
+            "query": "error_count",
+            "bucketAggs": [
+              { "type": "date_histogram", "field": "timestamp", "id": "1" }
+            ],
+            "metrics": [
+              { "type": "sum", "field": "error_count", "id": "2" }
+            ]
+          }
+        ],
+        "gridPos": { "x": 0, "y": 8, "w": 8, "h": 4 }
+      }
+    ],
+    "time": { "from": "now-6h", "to": "now" }
+  }
+}

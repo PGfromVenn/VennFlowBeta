@@ -1,0 +1,35 @@
+node_modules/
+dist/
+build/
+.env
+*.log
+*.tmp
+.DS_Store
+*.sqlite
+*.db
+frontend/node_modules/
+backend/node_modules/
+starlink-backend/node_modules/
+starlink-portal/node_modules/
+# Ignore OS and editor files
+Thumbs.db
+.vscode/
+.idea/
+# Ignore lock files if not needed
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+# Ignore coverage and test output
+coverage/
+*.coverage
+# Ignore frontend build artifacts
+frontend/dist/
+frontend/build/
+# Ignore backend build artifacts
+backend/dist/
+backend/build/
+# Ignore starlink build artifacts
+starlink-backend/dist/
+starlink-backend/build/
+starlink-portal/dist/
+starlink-portal/build/

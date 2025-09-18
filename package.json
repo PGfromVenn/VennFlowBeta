@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "moment-timezone": "^0.6.0",
+    "tz-lookup": "^6.1.25"
+  }
+}
