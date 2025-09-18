@@ -48,11 +48,11 @@ export default function AdminDBPage() {
         const vennboxFields = new Set();
         data.vennboxes.forEach(vb => {
           Object.keys(vb).forEach(f => {
-            if (!['_id','__v','routeur','LEO'].includes(f)) vennboxFields.add(f);
+            if (!['_id','__v','routeur','LEO','statutLogique'].includes(f)) vennboxFields.add(f);
           });
         });
-  vennboxFields.delete('devices');
-  setAllVennboxFields(Array.from(vennboxFields));
+        vennboxFields.delete('devices');
+        setAllVennboxFields(Array.from(vennboxFields));
         setLoading(false);
       })
       .catch((err) => {
@@ -112,7 +112,7 @@ export default function AdminDBPage() {
           <tr>
             <th style={{padding:'14px 24px'}}>QR</th>
             {allVennboxFields.map(f => <th key={f} style={{padding:'14px 24px', fontWeight:600}}>{f}</th>)}
-            <th style={{padding:'14px 24px', fontWeight:600}}>Statut logique</th>
+            <th style={{padding:'14px 24px', fontWeight:600}}>statutLogique</th>
             {/* <th style={{padding:'14px 24px'}}>Type</th> */}
             {deviceFields.map(df => <th key={df.key} style={{padding:'14px 24px', fontWeight:600}}>{df.label}</th>)}
             <th style={{padding:'14px 24px'}}>Actions</th>
@@ -150,7 +150,9 @@ export default function AdminDBPage() {
                           ))}
                         </select>
                       ) : (
-                        vb.statutLogique || '—'
+                        <span style={{fontWeight:600, color: vb.statutLogique ? '#222' : '#aaa'}}>
+                          {vb.statutLogique || '—'}
+                        </span>
                       )}
                     </td>
                   ) : null}
