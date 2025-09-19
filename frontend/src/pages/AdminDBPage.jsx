@@ -141,7 +141,7 @@ export default function AdminDBPage() {
                     </td>
                   ) : null)}
                   {devKey === 'routeur' ? (
-                    <td rowSpan={2} style={{padding:'10px 18px', background:'#fafbfc'}}>
+                    <td rowSpan={2} style={{padding:'10px 18px', background:'#346699ff'}}>
                       {editId === vb._id ? (
                         <select value={editData.statutLogique || ''} onChange={e => handleChange('statutLogique', e.target.value)} style={{padding:'7px 10px', fontSize:'1em', border:'1px solid #bbb', borderRadius:4}}>
                           <option value="">-- Choisir --</option>
